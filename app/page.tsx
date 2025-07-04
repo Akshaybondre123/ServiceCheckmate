@@ -264,8 +264,8 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Floating Screenshots */}
-                <div className="absolute -top-8 -right-16 w-32 h-64 bg-gray-900 rounded-2xl p-1 shadow-xl opacity-80 transform rotate-12 hover:rotate-6 transition-transform duration-300">
+                {/* Floating Screenshots - Hidden on mobile, visible on larger screens */}
+                <div className="hidden md:block absolute -top-8 -right-16 w-32 h-64 bg-gray-900 rounded-2xl p-1 shadow-xl opacity-80 transform rotate-12 hover:rotate-6 transition-transform duration-300">
                   <div className="bg-white rounded-xl overflow-hidden h-full">
                     <Image
                       src="/images/service-provider-screen.png"
@@ -277,7 +277,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="absolute -bottom-8 -left-16 w-32 h-64 bg-gray-900 rounded-2xl p-1 shadow-xl opacity-80 transform -rotate-12 hover:-rotate-6 transition-transform duration-300">
+                <div className="hidden md:block absolute -bottom-8 -left-16 w-32 h-64 bg-gray-900 rounded-2xl p-1 shadow-xl opacity-80 transform -rotate-12 hover:-rotate-6 transition-transform duration-300">
                   <div className="bg-white rounded-xl overflow-hidden h-full">
                     <Image
                       src="/images/project-review-screen.png"
@@ -289,15 +289,40 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Floating AI Elements */}
-                <div className="absolute -top-4 -left-4 w-16 h-16 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-2xl opacity-20 animate-bounce flex items-center justify-center">
-                  <Brain className="w-8 h-8 text-white" />
+                {/* Mobile-friendly floating screenshots - smaller and positioned better */}
+                <div className="md:hidden absolute -top-4 -right-8 w-20 h-32 bg-gray-900 rounded-xl p-1 shadow-lg opacity-70 transform rotate-6">
+                  <div className="bg-white rounded-lg overflow-hidden h-full">
+                    <Image
+                      src="/images/service-provider-screen.png"
+                      alt="Service Provider Profile"
+                      width={80}
+                      height={120}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+
+                <div className="md:hidden absolute -bottom-4 -left-8 w-20 h-32 bg-gray-900 rounded-xl p-1 shadow-lg opacity-70 transform -rotate-6">
+                  <div className="bg-white rounded-lg overflow-hidden h-full">
+                    <Image
+                      src="/images/project-review-screen.png"
+                      alt="Project Review"
+                      width={80}
+                      height={120}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* Floating AI Elements - Adjusted for mobile */}
+                <div className="absolute -top-4 -left-4 w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-2xl opacity-20 animate-bounce flex items-center justify-center">
+                  <Brain className="w-6 h-6 md:w-8 md:h-8 text-white" />
                 </div>
                 <div
-                  className="absolute -bottom-4 -right-4 w-12 h-12 bg-gradient-to-r from-emerald-400 to-green-500 rounded-xl opacity-20 animate-bounce flex items-center justify-center"
+                  className="absolute -bottom-4 -right-4 w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-emerald-400 to-green-500 rounded-xl opacity-20 animate-bounce flex items-center justify-center"
                   style={{ animationDelay: "1s" }}
                 >
-                  <Bot className="w-6 h-6 text-white" />
+                  <Bot className="w-5 h-5 md:w-6 md:h-6 text-white" />
                 </div>
               </div>
             </div>
@@ -807,36 +832,36 @@ export default function HomePage() {
 
         {/* Chatbot Interface */}
         {chatbotOpen && (
-          <div className="w-96 h-[500px] bg-white rounded-3xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden">
+          <div className="w-80 sm:w-96 h-[450px] sm:h-[500px] bg-white rounded-3xl shadow-2xl border border-gray-200 flex flex-col overflow-hidden">
             {/* Header */}
-            <div className="bg-gradient-to-r from-emerald-500 to-teal-600 p-4 flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                  <Bot className="w-6 h-6 text-white" />
+            <div className="bg-gradient-to-r from-emerald-500 to-teal-600 p-3 sm:p-4 flex items-center justify-between">
+              <div className="flex items-center space-x-2 sm:space-x-3">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 rounded-full flex items-center justify-center">
+                  <Bot className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-white font-bold">AI Assistant</h3>
-                  <p className="text-emerald-100 text-sm">Service Checkmate</p>
+                  <h3 className="text-white font-bold text-sm sm:text-base">AI Assistant</h3>
+                  <p className="text-emerald-100 text-xs sm:text-sm">Service Checkmate</p>
                 </div>
               </div>
               <button
                 onClick={() => setChatbotOpen(false)}
-                className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+                className="w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
               >
-                <X className="w-4 h-4 text-white" />
+                <X className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
               </button>
             </div>
 
             {/* Messages */}
-            <div className="flex-1 p-4 overflow-y-auto space-y-4">
+            <div className="flex-1 p-3 sm:p-4 overflow-y-auto space-y-3 sm:space-y-4">
               {messages.map((message) => (
                 <div key={message.id} className={`flex ${message.sender === "user" ? "justify-end" : "justify-start"}`}>
                   <div
-                    className={`max-w-[80%] p-3 rounded-2xl ${
+                    className={`max-w-[85%] sm:max-w-[80%] p-2 sm:p-3 rounded-2xl ${
                       message.sender === "user" ? "bg-emerald-500 text-white" : "bg-gray-100 text-gray-900"
                     }`}
                   >
-                    <p className="text-sm">{message.text}</p>
+                    <p className="text-xs sm:text-sm">{message.text}</p>
                     <p className={`text-xs mt-1 ${message.sender === "user" ? "text-emerald-100" : "text-gray-500"}`}>
                       {message.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
                     </p>
@@ -847,7 +872,7 @@ export default function HomePage() {
               {/* Typing Indicator */}
               {isTyping && (
                 <div className="flex justify-start">
-                  <div className="bg-gray-100 p-3 rounded-2xl">
+                  <div className="bg-gray-100 p-2 sm:p-3 rounded-2xl">
                     <div className="flex space-x-1">
                       <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
                       <div
@@ -865,23 +890,23 @@ export default function HomePage() {
             </div>
 
             {/* Quick Actions */}
-            <div className="p-3 border-t border-gray-100">
-              <div className="flex flex-wrap gap-2 mb-3">
+            <div className="p-2 sm:p-3 border-t border-gray-100">
+              <div className="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-3">
                 <button
                   onClick={() => setInputMessage("I need help finding a contractor")}
-                  className="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs hover:bg-emerald-100 transition-colors"
+                  className="bg-emerald-50 text-emerald-700 px-2 sm:px-3 py-1 rounded-full text-xs hover:bg-emerald-100 transition-colors"
                 >
                   Find Contractor
                 </button>
                 <button
                   onClick={() => setInputMessage("Create a project scope")}
-                  className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs hover:bg-blue-100 transition-colors"
+                  className="bg-blue-50 text-blue-700 px-2 sm:px-3 py-1 rounded-full text-xs hover:bg-blue-100 transition-colors"
                 >
                   Create Scope
                 </button>
                 <button
                   onClick={() => setInputMessage("Track my project progress")}
-                  className="bg-purple-50 text-purple-700 px-3 py-1 rounded-full text-xs hover:bg-purple-100 transition-colors"
+                  className="bg-purple-50 text-purple-700 px-2 sm:px-3 py-1 rounded-full text-xs hover:bg-purple-100 transition-colors"
                 >
                   Track Progress
                 </button>
@@ -895,14 +920,19 @@ export default function HomePage() {
                   onChange={(e) => setInputMessage(e.target.value)}
                   onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
                   placeholder="Ask me anything..."
-                  className="flex-1 px-3 py-2 border border-gray-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500"
+                  className="flex-1 px-2 sm:px-3 py-2 border border-gray-200 rounded-full text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500"
                 />
                 <button
                   onClick={handleSendMessage}
                   disabled={!inputMessage.trim()}
-                  className="w-8 h-8 bg-emerald-500 hover:bg-emerald-600 disabled:bg-gray-300 rounded-full flex items-center justify-center transition-colors"
+                  className="w-7 h-7 sm:w-8 sm:h-8 bg-emerald-500 hover:bg-emerald-600 disabled:bg-gray-300 rounded-full flex items-center justify-center transition-colors"
                 >
-                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg
+                    className="w-3 h-3 sm:w-4 sm:h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
