@@ -250,22 +250,22 @@ export default function HomePage() {
                 isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
               }`}
             >
-              <div className="relative mx-auto max-w-sm">
+              <div className="relative mx-auto max-w-sm px-4 sm:px-0">
                 {/* Main Phone */}
-                <div className="relative bg-gray-900 rounded-[3rem] p-2 shadow-2xl">
-                  <div className="bg-white rounded-[2.5rem] overflow-hidden">
+                <div className="relative bg-gray-900 rounded-[2.5rem] sm:rounded-[3rem] p-1.5 sm:p-2 shadow-2xl mx-auto w-64 sm:w-80">
+                  <div className="bg-white rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden">
                     <Image
                       src="/images/dashboard-screen.png"
                       alt="Service Checkmate Dashboard"
                       width={300}
                       height={400}
-                      className="w-full h-96 object-cover"
+                      className="w-full h-80 sm:h-96 object-cover"
                     />
                   </div>
                 </div>
 
-                {/* Floating Screenshots - Hidden on mobile, visible on larger screens */}
-                <div className="hidden md:block absolute -top-8 -right-16 w-32 h-64 bg-gray-900 rounded-2xl p-1 shadow-xl opacity-80 transform rotate-12 hover:rotate-6 transition-transform duration-300">
+                {/* Desktop floating screenshots - only visible on large screens */}
+                <div className="hidden lg:block absolute -top-8 -right-16 w-32 h-64 bg-gray-900 rounded-2xl p-1 shadow-xl opacity-80 transform rotate-12 hover:rotate-6 transition-transform duration-300">
                   <div className="bg-white rounded-xl overflow-hidden h-full">
                     <Image
                       src="/images/service-provider-screen.png"
@@ -277,7 +277,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="hidden md:block absolute -bottom-8 -left-16 w-32 h-64 bg-gray-900 rounded-2xl p-1 shadow-xl opacity-80 transform -rotate-12 hover:-rotate-6 transition-transform duration-300">
+                <div className="hidden lg:block absolute -bottom-8 -left-16 w-32 h-64 bg-gray-900 rounded-2xl p-1 shadow-xl opacity-80 transform -rotate-12 hover:-rotate-6 transition-transform duration-300">
                   <div className="bg-white rounded-xl overflow-hidden h-full">
                     <Image
                       src="/images/project-review-screen.png"
@@ -289,40 +289,40 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Mobile-friendly floating screenshots - smaller and positioned better */}
-                <div className="md:hidden absolute -top-4 -right-8 w-20 h-32 bg-gray-900 rounded-xl p-1 shadow-lg opacity-70 transform rotate-6">
-                  <div className="bg-white rounded-lg overflow-hidden h-full">
+                {/* Mobile/Tablet floating screenshots - better positioned */}
+                <div className="lg:hidden absolute -top-2 -right-2 w-16 h-28 bg-gray-900 rounded-lg p-0.5 shadow-lg opacity-60 transform rotate-3">
+                  <div className="bg-white rounded-md overflow-hidden h-full">
                     <Image
                       src="/images/service-provider-screen.png"
                       alt="Service Provider Profile"
-                      width={80}
-                      height={120}
+                      width={60}
+                      height={100}
                       className="w-full h-full object-cover"
                     />
                   </div>
                 </div>
 
-                <div className="md:hidden absolute -bottom-4 -left-8 w-20 h-32 bg-gray-900 rounded-xl p-1 shadow-lg opacity-70 transform -rotate-6">
-                  <div className="bg-white rounded-lg overflow-hidden h-full">
+                <div className="lg:hidden absolute -bottom-2 -left-2 w-16 h-28 bg-gray-900 rounded-lg p-0.5 shadow-lg opacity-60 transform -rotate-3">
+                  <div className="bg-white rounded-md overflow-hidden h-full">
                     <Image
                       src="/images/project-review-screen.png"
                       alt="Project Review"
-                      width={80}
-                      height={120}
+                      width={60}
+                      height={100}
                       className="w-full h-full object-cover"
                     />
                   </div>
                 </div>
 
-                {/* Floating AI Elements - Adjusted for mobile */}
-                <div className="absolute -top-4 -left-4 w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-2xl opacity-20 animate-bounce flex items-center justify-center">
-                  <Brain className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                {/* Floating AI Elements - Responsive positioning */}
+                <div className="absolute -top-2 -left-2 sm:-top-4 sm:-left-4 w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-xl sm:rounded-2xl opacity-20 animate-bounce flex items-center justify-center">
+                  <Brain className="w-5 h-5 sm:w-8 sm:h-8 text-white" />
                 </div>
                 <div
-                  className="absolute -bottom-4 -right-4 w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-emerald-400 to-green-500 rounded-xl opacity-20 animate-bounce flex items-center justify-center"
+                  className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-emerald-400 to-green-500 rounded-lg sm:rounded-xl opacity-20 animate-bounce flex items-center justify-center"
                   style={{ animationDelay: "1s" }}
                 >
-                  <Bot className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                  <Bot className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
                 </div>
               </div>
             </div>
